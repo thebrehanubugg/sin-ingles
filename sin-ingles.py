@@ -23,13 +23,15 @@ def main():
                 verbs = get_study_verbs_dataset()
                 gotten_wrong = start_flashcard(verbs)
                 create_analysis(gotten_wrong)
+            elif study_command == "vocabulario":
+                print(colored("\t¡no quiero estudiar ahora, señor!", "white"))
             else:
-                pass
+                print(colored("\t¡no comprende!", "red"))
         elif command == "q":
-            print("¡adiós!")
+            print("¡adiós!\n")
             exit()
         else:
-            print("¡no comprende!")
+            print(colored("¡no comprende!", "red"))
 
 
 if __name__ == "__main__":
