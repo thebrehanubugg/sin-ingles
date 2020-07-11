@@ -40,7 +40,7 @@ def get_study_verbs_dataset():
     # will hold all the verbs with only the requested tenses
     final_results = dict()
 
-    with open("study-verbs.txt", "r") as verbs:
+    with open("./study/verbs.txt", "r") as verbs:
         lines = verbs.readlines()  # read each line of the file
         contents = [line.rstrip() for line in lines]  # remove the newline
 
@@ -97,7 +97,7 @@ def is_done(obj):
     return True  # in other words, IS done
 
 
-def start_flashcard(obj):
+def quiz_verbs(obj):
     """Given an object of verbs, quiz the user by randomly selecting words
     until everything is completed."""
     seen = dict()  # holds all the conjugations seen
@@ -159,7 +159,7 @@ def start_flashcard(obj):
 def create_analysis(obj):
     """Given an object, create an analysis on what to work on based on the
     answers given incorrectly."""
-    analysis = ""  # will hold the contents of verbs-analysis.txt
+    analysis = ""  # will hold the contents of verbs/analysis.txt
 
     # loop through every verb
     for verb, conjugations in obj.items():
@@ -171,9 +171,9 @@ def create_analysis(obj):
                 if n_incorrect > 0:
                     analysis += f"{verb}/{tense}/{pronoun}: {n_incorrect}x\n"
 
-    # delete the current contents of verbs-analysis.txt
-    open("verbs-analysis.txt", "w").close()
+    # delete the current contents of verbs/analysis.txt
+    open("./analysis/verbs.txt", "w").close()
 
     # write the analysis
-    with open("verbs-analysis.txt", "w") as verbs_analysis_file:
+    with open("./analysis/verbs.txt", "w") as verbs_analysis_file:
         verbs_analysis_file.write(analysis)

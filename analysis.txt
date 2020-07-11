@@ -1,0 +1,3 @@
+estar/presente/tú: 3x
+estar/presente/él/ella/usted: 1x
+estar/presente/vos: 2x
